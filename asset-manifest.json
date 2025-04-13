@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/RaccoonBN/gpa-calculator/static/css/main.ff186553.css",
+    "main.js": "/RaccoonBN/gpa-calculator/static/js/main.fc7a943b.js",
+    "static/js/453.96842e3a.chunk.js": "/RaccoonBN/gpa-calculator/static/js/453.96842e3a.chunk.js",
+    "index.html": "/RaccoonBN/gpa-calculator/index.html",
+    "main.ff186553.css.map": "/RaccoonBN/gpa-calculator/static/css/main.ff186553.css.map",
+    "main.fc7a943b.js.map": "/RaccoonBN/gpa-calculator/static/js/main.fc7a943b.js.map",
+    "453.96842e3a.chunk.js.map": "/RaccoonBN/gpa-calculator/static/js/453.96842e3a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff186553.css",
+    "static/js/main.fc7a943b.js"
+  ]
+}
