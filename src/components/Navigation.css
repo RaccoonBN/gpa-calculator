@@ -1,0 +1,77 @@
+.app-navigation {
+    background-color: var(--primary-color);
+    /* background-color: #f1f3f5; */ /* Hoặc màu nền khác */
+    height: var(--nav-height);
+    display: flex;
+    justify-content: center; /* Căn giữa các nút */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    position: fixed; /* Cố định navigation */
+    top: var(--header-height); /* Ngay dưới header */
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Dưới header */
+    padding: 0 15px; /* Padding hai bên */
+    gap: 10px; /* Khoảng cách giữa các nút */
+    overflow-x: auto; /* Scroll ngang nếu không đủ chỗ */
+    -webkit-overflow-scrolling: touch; /* Scroll mượt trên iOS */
+  }
+  
+  /* Ẩn thanh scrollbar */
+  .app-navigation::-webkit-scrollbar { display: none; }
+  .app-navigation { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  
+  .nav-button {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color-light); /* Màu chữ trên nền chính */
+    /* color: var(--primary-color); */ /* Nếu nền nav sáng */
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Không xuống dòng text */
+    border-bottom: 3px solid transparent; /* Border đáy ẩn */
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight nhẹ khi hover */
+    /* background-color: #e9ecef; */ /* Nếu nền nav sáng */
+  }
+  
+  .nav-button.active {
+    /* background-color: var(--primary-color-dark); */
+    color: #fff; /* Màu chữ nút active */
+    font-weight: 600;
+    border-bottom-color: var(--secondary-color); /* Đường gạch chân màu nhấn */
+     /* Hoặc dùng màu trắng/vàng làm màu gạch chân */
+     /* border-bottom-color: #fff; */
+  }
+  
+  .nav-icon {
+    font-size: 1.1em; /* Kích thước icon */
+    display: inline-block;
+    line-height: 1; /* Căn chỉnh icon */
+  }
+  
+  .nav-label {
+    display: inline-block; /* Mặc định hiển thị */
+  }
+  
+  /* Ẩn chữ trên màn hình nhỏ nếu muốn, chỉ hiện icon */
+  @media (max-width: 600px) {
+     .nav-label {
+         display: none; /* Ẩn chữ */
+     }
+     .nav-button {
+         padding: 10px 12px; /* Tăng padding cho icon */
+     }
+      .nav-icon { font-size: 1.3em; } /* Icon to hơn */
+      .app-navigation { justify-content: space-around; } /* Phân bố đều icon */
+  }

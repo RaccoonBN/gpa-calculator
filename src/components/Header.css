@@ -1,0 +1,44 @@
+.app-header {
+    background-color: var(--background-light);
+    /* background-color: var(--primary-color); */ /* Hoặc dùng màu chính làm nền */
+    color: var(--primary-color);
+    /* color: var(--text-color-light); */
+    height: var(--header-height);
+    padding: 0 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Cố định header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Đảm bảo luôn ở trên */
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-content {
+    max-width: var(--content-max-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .vaa-logo {
+    height: 50px; /* Điều chỉnh chiều cao logo */
+    width: auto;
+    object-fit: contain; /* Giữ tỷ lệ logo */
+  }
+  
+  .app-title {
+     font-size: 1.5em; /* Kích thước tiêu đề */
+     margin: 0; /* Reset margin mặc định của h1 */
+     font-weight: 600;
+     /* color: var(--text-color-light); */ /* Nếu nền header là màu chính */
+  }
+  
+  @media (max-width: 768px) {
+    .app-header { padding: 0 15px; }
+    .vaa-logo { height: 40px; }
+    .app-title { font-size: 1.3em; }
+  }

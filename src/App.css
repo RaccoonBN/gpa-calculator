@@ -1,38 +1,255 @@
-.App {
-  text-align: center;
+/* --- Reset & Base Styles --- */
+:root {
+  --primary-color: #3f4096; /* Màu chủ đạo VAA */
+  --primary-color-dark: #2e2f7a;
+  --primary-color-light: #e8eaf6; /* Màu nền nhạt */
+  --secondary-color: #f5a623; /* Màu nhấn (cam/vàng) - tùy chọn */
+  --text-color: #333;
+  --text-color-light: #f8f9fa;
+  --border-color: #d1d1e0; /* Border nhạt hơn */
+  --background-light: #ffffff;
+  --background-grey: #f8f9fa;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+
+  --header-height: 70px; /* Chiều cao header */
+  --nav-height: 60px; /* Chiều cao navigation */
+  --footer-height: 80px; /* Chiều cao footer */
+
+  --content-max-width: 1100px;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-grey);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding-top: calc(var(--header-height) + var(--nav-height)); /* Đẩy nội dung xuống dưới header+nav cố định */
+  padding-bottom: var(--footer-height); /* Đảm bảo footer không che nội dung */
 }
+button { cursor: pointer; font-family: inherit; }
+input, select, button { font-size: 1rem; }
+h1, h2, h3, h4 { color: var(--primary-color); margin-bottom: 0.8em; }
+h2 { font-size: 1.6em; border-bottom: 2px solid var(--primary-color-light); padding-bottom: 0.3em;}
+h3 { font-size: 1.3em; }
+p { margin-bottom: 1em; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- App Layout --- */
+.modern-app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+}
+
+.app-main-content {
+  flex-grow: 1; /* Cho phép main content chiếm không gian còn lại */
+  max-width: var(--content-max-width);
+  width: 95%;
+  margin: 20px auto; /* Căn giữa và tạo khoảng cách */
+  padding: 25px;
+  background-color: var(--background-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* --- General Components Styles --- */
+.action-button, .add-button, .estimate-button {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px; /* Khoảng cách giữa icon và text */
+}
+.action-button:hover, .add-button:hover, .estimate-button:hover {
+  background-color: var(--primary-color-dark);
+}
+ .action-button:active, .add-button:active, .estimate-button:active {
+   transform: translateY(1px);
+ }
+
+.remove-button {
+  background: none; border: none; color: var(--error-color); font-size: 1.4em;
+  cursor: pointer; padding: 0 5px; line-height: 1; transition: color 0.2s ease;
+}
+.remove-button:hover { color: #a71d2a; }
+
+ .error-message { color: var(--error-color); font-size: 0.9em; margin-top: 8px; text-align: center; }
+ .info-message { color: var(--info-color); font-style: italic; text-align: center; }
+ .no-courses-message, .no-semesters-message { text-align: center; color: #6c757d; padding: 20px; font-style: italic; margin-top: 15px; }
+
+/* --- Specific Component Adjustments (Add as needed) --- */
+
+ /* Summary Box */
+.summary-box {
+    background-color: var(--primary-color-light);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    text-align: center;
+}
+ .summary-box h3 { color: var(--primary-color); margin-top: 0;}
+
+
+/* --- Form Styling (Modern) --- */
+.modern-form {
+  background-color: transparent; /* Bỏ nền form cũ */
+  border: none;
+  padding: 0;
+  margin-bottom: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-grid {
+  display: grid;
+  /* 3 cột cho desktop, tự động điều chỉnh */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px 20px; /* row-gap column-gap */
+  align-items: end; /* Căn các phần tử về cuối grid cell */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Cho phép một số phần tử chiếm nhiều cột */
+.grid-col-span-2 { grid-column: span 2; }
+
+.form-group label {
+  display: flex; /* Cho icon và text thẳng hàng */
+  align-items: center;
+  gap: 6px; /* Khoảng cách icon và text */
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  color: #555;
+}
+ .form-group label svg { color: var(--primary-color); } /* Màu icon */
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px; /* Bo góc nhẹ hơn */
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(63, 64, 150, 0.2);
+  outline: none;
+}
+
+.form-submit-group {
+    grid-column: -1; /* Luôn ở cột cuối */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Căn nút về bên phải */
+}
+.form-submit-group .error-message { text-align: right; margin-bottom: 5px; }
+
+.add-course-button { /* Nút thêm môn */
+  width: auto; /* Không chiếm full width */
+  padding: 10px 25px;
+}
+
+/* --- Course List Styling --- */
+ .course-list-container {
+    overflow-x: auto; /* Cho phép scroll ngang */
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.course-table {
+    width: 100%;
+    min-width: 850px; /* Đảm bảo không bị vỡ quá nhiều */
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+.course-table th, .course-table td {
+    padding: 12px 10px; /* Tăng padding */
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+.course-table th {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95em;
+    position: sticky; top: 0; z-index: 1;
+    border-top: none; /* Bỏ border top của header */
+}
+ .course-table td { border-left: 1px solid #eee; } /* Thêm đường kẻ dọc nhẹ */
+ .course-table td:first-child { border-left: none; }
+ .course-table tbody tr:last-child td { border-bottom: none; } /* Bỏ border bottom dòng cuối */
+ .course-table tbody tr:hover { background-color: #f1f3f5; } /* Highlight on hover */
+
+/* Căn chỉnh và style cột */
+.col-name { text-align: left; white-space: normal; }
+.col-avg10, .col-letter, .col-gpa4 { font-weight: 500; }
+.col-gpa4 { color: var(--primary-color-dark); font-size: 1.05em; }
+
+/* --- GPADisplay Styling --- */
+.gpa-display-item { font-weight: 500; font-size: 1rem; }
+.gpa-display-item.cumulative { font-size: 1.6em; color: var(--primary-color); display: block; margin-bottom: 5px; }
+.gpa-display-item.semester-gpa { color: var(--success-color); font-size: 1.1em; text-align: right; }
+.gpa-label { color: #555; margin-right: 8px; }
+.gpa-value { font-weight: 600; }
+.gpa-credits { font-size: 0.8em; color: #777; margin-left: 5px; }
+
+/* --- Estimator Styling --- */
+.modern-estimator .estimator-input-group { margin-bottom: 25px; }
+.modern-results {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 15px 20px;
+    margin-top: 20px;
+}
+.modern-results h4 { color: var(--primary-color); margin-bottom: 15px;}
+.modern-results ul { list-style: none; padding: 0; }
+.modern-results li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.95rem;
+}
+ .modern-results li:last-child { border-bottom: none; }
+
+/* --- View Specific Styles --- */
+.view-container h2 { display: flex; align-items: center; gap: 10px; }
+.view-container h2 svg { font-size: 0.9em; } /* Icon trong H2 nhỏ hơn */
+
+.single-result-display {
+    margin-top: 30px;
+    background-color: var(--primary-color-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+ .single-result-display h3 { margin-top: 0; color: var(--primary-color); }
+ .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 20px; margin-top: 15px; }
+ .result-item { font-size: 0.95rem; }
+ .result-label { color: #555; margin-right: 5px; }
+ .result-value { font-weight: 500; }
+ .result-highlight .result-value { font-weight: 600; color: var(--primary-color-dark); }
+ .result-highlight.score4 .result-value { font-size: 1.1em; }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    body { padding-top: calc(var(--header-height) + var(--nav-height) + 10px); } /* Thêm padding top */
+    .app-main-content { width: 98%; padding: 15px; margin-top: 10px; }
+    .form-grid { grid-template-columns: 1fr; } /* 1 cột trên mobile */
+    .grid-col-span-2 { grid-column: span 1; }
+    .form-submit-group { grid-column: span 1; align-items: stretch; }
+    .add-course-button { width: 100%; }
+    .course-table { min-width: 600px; font-size: 0.85em;}
+    .col-name { white-space: normal; } /* Cho phép tên môn xuống dòng */
 }

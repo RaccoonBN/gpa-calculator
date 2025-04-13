@@ -1,0 +1,37 @@
+.view-container {
+    animation: fadeIn 0.5s ease-in-out; /* Hiệu ứng xuất hiện */
+  }
+  
+  /* --- Result Display (Single Course) --- */
+  .result-display {
+      margin-top: 30px;
+      background-color: var(--primary-color-light);
+      padding: 20px;
+      border-radius: var(--border-radius);
+  }
+   .result-display h3 { margin-top: 0; color: var(--primary-color); }
+   .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 20px; margin-top: 15px; }
+   .result-item { font-size: 0.95rem; }
+   .result-label { color: #555; margin-right: 5px; }
+   .result-value { font-weight: 500; }
+   .result-highlight .result-value { font-weight: 600; color: var(--primary-color-dark); }
+   .result-highlight.score4 .result-value { font-size: 1.1em; }
+  
+  
+  /* --- Estimator View --- */
+  .estimator-view .info-message {
+      background-color: #e2f3f5;
+      color: #0c5460;
+      border: 1px solid #b8daff;
+      padding: 15px;
+      border-radius: var(--border-radius);
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  
+  /* --- Keyframes for Animation --- */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
