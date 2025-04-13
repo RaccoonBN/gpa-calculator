@@ -12,8 +12,7 @@
 - Chạy trực tiếp trên GitHub Pages
 
 ## 🌐 Truy cập ứng dụng tại:
-👉 [https://<your-username>.github.io/<your-repo>](https://<your-username>.github.io/<your-repo>)
+👉 [https://raccoonbn.github.io/gpa-calculator/](https://raccoonbn.github.io/gpa-calculator/>)
 
 ## 📄 Bản quyền
-
 Phát hành theo giấy phép [MIT](LICENSE).
