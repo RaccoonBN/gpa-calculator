@@ -5,7 +5,6 @@ const navItems = [
   { key: 'single', label: 'Tính điểm môn', icon: <FaCalculator /> },
   { key: 'manage', label: 'Quản lý GPA', icon: <FaListOl /> },
   { key: 'estimator', label: 'Dự đoán điểm', icon: <FaBullseye /> },
-  // { key: 'cumulative', label: 'GPA Tích Lũy', icon: <FaChartLine /> }, // Có thể gộp vào 'manage'
 ];
 
 function Navigation({ activeView, setActiveView }) {

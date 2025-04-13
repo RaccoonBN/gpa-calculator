@@ -1,0 +1,327 @@
+
+
+.gpa-estimator {
+    background-color: #fff; /* Nền trắng cho khu vực estimator */
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color-light); /* Thêm viền nhẹ */
+  }
+  
+  /* --- Khu vực nhập liệu --- */
+  .estimator-input-area {
+    display: flex;
+    align-items: flex-end; /* Căn label/input và button theo đáy */
+    gap: 15px;
+    flex-wrap: wrap; /* Cho phép xuống dòng */
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    flex: 1; /* Cho phép group input co giãn */
+    min-width: 200px; /* Chiều rộng tối thiểu */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.95em;
+    margin-bottom: 6px;
+    color: #444;
+  }
+  .input-group label svg {
+    color: var(--primary-color);
+    font-size: 0.9em;
+  }
+  
+  .input-group input[type="number"] {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    width: 100%; /* Chiếm hết chiều rộng của group */
+  }
+  .input-group input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+    outline: none;
+  }
+  
+  /* Nút ước lượng */
+  .estimate-button {
+    /* Kế thừa style từ .action-button hoặc định nghĩa riêng */
+     padding: 10px 25px; /* Padding lớn hơn chút */
+     flex-shrink: 0; /* Không bị co lại khi flex-wrap */
+  }
+  
+  /* Lỗi của estimator */
+  .estimator-error {
+    text-align: left; /* Căn trái lỗi */
+    margin-bottom: 15px;
+  }
+  
+  /* --- Khu vực kết quả --- */
+  .estimation-results {
+    margin-top: 25px;
+    border-top: 1px solid var(--border-color-light); /* Ngăn cách với phần input */
+    padding-top: 20px;
+  }
+  
+  .estimation-results h4 {
+    color: var(--primary-color-dark);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .estimation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Hiển thị các mục trên cùng hàng */
+    flex-wrap: wrap; /* Cho phép xuống dòng */
+    gap: 15px; /* Khoảng cách giữa các mục */
+    justify-content: center; /* Căn giữa các mục */
+  }
+  
+  .estimation-item {
+    background-color: var(--background-grey);
+    padding: 12px 18px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid; /* Border trái để thể hiện status */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    flex: 1; /* Chia sẻ không gian */
+    min-width: 250px; /* Đảm bảo không quá hẹp */
+    transition: background-color var(--transition-speed) ease;
+  }
+  
+  .estimation-item:hover {
+     background-color: #e9ecef; /* Sáng hơn chút khi hover */
+  }
+  
+  
+  .status-icon {
+    font-size: 1.2em;
+    flex-shrink: 0; /* Icon không bị co */
+    line-height: 1;
+  }
+  
+  .estimation-message {
+    flex-grow: 1; /* Text chiếm không gian còn lại */
+  }
+  
+  /* Style màu sắc và icon dựa trên status */
+  .estimation-item.status-achieved {
+    border-left-color: var(--success-color);
+  }
+  .estimation-item.status-achieved .status-icon {
+    color: var(--success-color);
+  }
+  
+  .estimation-item.status-possible {
+    border-left-color: var(--info-color);
+  }
+  .estimation-item.status-possible .status-icon {
+    color: var(--info-color);
+  }
+  .estimation-item.status-possible .gpa-value { /* Nổi bật GPA cần */
+      font-weight: 600;
+      color: var(--primary-color-dark);
+      background-color: rgba(var(--primary-color-rgb), 0.1);
+      padding: 1px 4px;
+      border-radius: 3px;
+      margin: 0 2px;
+  }
+  
+  .estimation-item.status-easy {
+      border-left-color: var(--success-color);
+  }
+  .estimation-item.status-easy .status-icon {
+      color: var(--success-color);
+  }
+  
+  
+  .estimation-item.status-impossible {
+    border-left-color: var(--error-color);
+  }
+  .estimation-item.status-impossible .status-icon {
+    color: var(--error-color);
+  }
+  .estimation-item.status-impossible .gpa-value { /* GPA không thể */
+      font-weight: 600;
+      color: var(--error-color);
+  }
+  
+  
+  .estimation-item.status-error {
+    border-left-color: var(--warning-color); /* Màu vàng cho lỗi */
+  }
+  .estimation-item.status-error .status-icon {
+    color: var(--warning-color);
+  }
+  /* Style cho phần giải thích chung của estimator */
+.estimator-explanation-note {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: -10px; /* Kéo lên gần phần input hơn */
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    align-items: flex-start; /* Căn icon với dòng đầu */
+    gap: 6px;
+    background-color: rgba(var(--info-color), 0.05); /* Nền nhẹ hơn hint thường */
+    padding: 8px 10px;
+    border-radius: 4px;
+    border-left: 3px solid var(--info-color);
+  }
+  .estimator-explanation-note svg {
+    color: var(--info-color);
+    flex-shrink: 0;
+    margin-top: 3px; /* Căn icon với dòng đầu */
+  }
+  .estimator-explanation-note strong {
+      font-weight: 600;
+      color: var(--primary-color-dark);
+  }
+  
+  
+  /* --- Khu vực kết quả --- */
+  .estimation-results {
+    margin-top: 25px;
+    border-top: 1px solid var(--border-color-light);
+    padding-top: 20px;
+  }
+  
+  .estimation-results h4 {
+    color: var(--primary-color-dark);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .estimation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .estimation-item {
+    background-color: var(--background-grey);
+    padding: 12px 15px; /* Giảm padding ngang chút */
+    border-radius: var(--border-radius);
+    border-left: 4px solid;
+    display: flex;
+    align-items: center; /* Căn giữa icon và content */
+    gap: 12px; /* Tăng khoảng cách icon và content */
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: 280px; /* Tăng min-width */
+    transition: background-color var(--transition-speed) ease;
+  }
+  .estimation-item:hover {
+     background-color: #e9ecef;
+  }
+  
+  
+  .status-icon {
+    font-size: 1.4em; /* Icon to hơn */
+    flex-shrink: 0;
+    line-height: 1;
+    width: 25px; /* Đảm bảo icon chiếm không gian */
+    text-align: center;
+  }
+  
+  /* Bọc content để message và explanation xếp dọc */
+  .estimation-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+  }
+  
+  .estimation-message {
+      font-weight: 500; /* Message chính đậm hơn */
+      line-height: 1.4; /* Giãn dòng */
+  }
+  .estimation-message strong {
+      color: var(--primary-color-dark); /* Nhấn mạnh mục tiêu */
+  }
+  .estimation-message .gpa-value { /* Style chung cho giá trị GPA trong message */
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin: 0 3px;
+      white-space: nowrap; /* Không xuống dòng giá trị GPA */
+  }
+  
+  /* Style riêng cho từng loại giá trị GPA */
+  .estimation-message .required-possible {
+      color: var(--primary-color-dark);
+      background-color: rgba(var(--primary-color-rgb), 0.1);
+  }
+  .estimation-message .required-impossible {
+      color: var(--error-color);
+      background-color: rgba(var(--error-color), 0.1);
+  }
+  
+  
+  .estimation-explanation {
+      font-size: 0.85em;
+      color: var(--text-color-muted);
+      margin-top: 3px; /* Khoảng cách với message chính */
+      font-style: italic;
+  }
+  
+  
+  /* --- Style màu sắc dựa trên status --- */
+  .estimation-item.status-achieved { border-left-color: var(--success-color); }
+  .estimation-item.status-achieved .status-icon { color: var(--success-color); }
+  
+  .estimation-item.status-possible { border-left-color: var(--info-color); }
+  .estimation-item.status-possible .status-icon { color: var(--info-color); }
+  
+  .estimation-item.status-easy { border-left-color: var(--success-color); }
+  .estimation-item.status-easy .status-icon { color: var(--success-color); }
+  
+  .estimation-item.status-impossible { border-left-color: var(--error-color); }
+  .estimation-item.status-impossible .status-icon { color: var(--error-color); }
+  
+  .estimation-item.status-error { border-left-color: var(--warning-color); }
+  .estimation-item.status-error .status-icon { color: var(--warning-color); }
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .estimator-input-area {
+      flex-direction: column; /* Xếp dọc input và button */
+      align-items: stretch; /* Kéo dài các phần tử */
+    }
+    .estimate-button {
+       width: 100%; /* Nút full width */
+       justify-content: center; /* Căn giữa */
+       margin-top: 5px;
+    }
+    .estimation-list {
+      flex-direction: column; /* Xếp dọc các kết quả */
+      gap: 10px;
+    }
+    .estimation-item {
+       min-width: unset; /* Bỏ min-width */
+     }
+      .estimation-item {
+         min-width: unset;
+         padding: 10px 12px;
+      }
+      .status-icon { font-size: 1.2em; }
+      .estimation-message { font-size: 0.9rem; }
+      .estimation-explanation { font-size: 0.8em; }
+    
+  }

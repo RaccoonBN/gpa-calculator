@@ -1,0 +1,129 @@
+/* src/components/CourseList.css */
+
+.course-list-container {
+    overflow-x: auto; /* Cho phép scroll ngang */
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-light);
+  }
+  
+  .course-table {
+    width: 100%;
+    min-width: 850px; /* Chiều rộng tối thiểu để tránh vỡ layout */
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  
+  /* --- Header Bảng --- */
+  .course-table th {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 12px 10px;
+    text-align: center;
+    white-space: nowrap;
+    position: sticky; /* Giữ header khi scroll */
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 1px solid var(--border-color);
+  }
+  .course-table th:last-child {
+    border-right: none;
+  }
+  
+  /* --- Ô Dữ liệu --- */
+  .course-table td {
+    padding: 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color-light); /* Border dưới nhạt hơn */
+    white-space: nowrap;
+    border-right: 1px solid var(--border-color-light); /* Border phải nhạt hơn */
+  }
+  .course-table td:last-child {
+    border-right: none;
+  }
+  .course-table td:first-child {
+     border-left: none;
+  }
+  .course-table tbody tr:last-child td {
+    border-bottom: none; /* Bỏ border dưới dòng cuối */
+  }
+  .course-table tbody tr:hover {
+    background-color: #f1f3f5; /* Hiệu ứng hover */
+  }
+  
+  /* --- Style Cột --- */
+  .col-name {
+    text-align: left;
+    white-space: normal; /* Cho phép tên môn xuống dòng */
+    min-width: 200px;
+    font-weight: 500;
+    padding-left: 15px !important;
+  }
+  .col-credits { width: 60px; font-weight: 500; }
+  .col-component { width: 90px; color: var(--text-color-muted); }
+  .col-avg10 { width: 90px; font-weight: 500; }
+  .col-letter { width: 90px; font-weight: 600; }
+  .col-gpa4 { /* Nổi bật cột điểm 4 */
+    width: 90px;
+    color: var(--primary-color-dark);
+    font-size: 1.05em;
+    font-weight: 600;
+    background-color: rgba(var(--primary-color-rgb, 63, 64, 150), 0.05);
+  }
+  .col-action { width: 60px; }
+  
+  /* --- Nút Xóa --- */
+  .remove-button {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 5px 8px;
+    line-height: 1;
+    transition: color var(--transition-speed) ease, transform 0.1s ease, background-color var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  .remove-button:hover {
+    color: #a71d2a;
+    background-color: rgba(220, 53, 69, 0.1);
+  }
+  .remove-button:active {
+      transform: scale(0.95);
+  }
+  
+  /* --- Thông báo không có môn --- */
+  .no-courses-message {
+    text-align: center;
+    color: var(--text-color-muted);
+    padding: 30px 20px;
+    font-style: italic;
+    margin: 20px;
+    background-color: var(--background-grey);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+  }
+  
+  /* --- Responsive --- */
+  @media (max-width: 992px) {
+    .course-table { min-width: 750px; }
+  }
+  @media (max-width: 768px) {
+    .course-table { min-width: 650px; font-size: 0.85em; }
+    .course-table th,
+    .course-table td { padding: 8px 8px; }
+    .col-name { min-width: 150px; }
+  }
+  @media (max-width: 600px) {
+     .course-table { min-width: 550px; }
+     /* Xem xét ẩn cột .col-component nếu cần */
+     /* .col-component, .course-table th.col-component { display: none; } */
+  }

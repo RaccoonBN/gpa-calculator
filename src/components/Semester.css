@@ -1,0 +1,137 @@
+.semester-container {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    background-color: var(--background-light);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.semester-container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header của học kỳ */
+.semester-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: var(--primary-color-light);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Input tên học kỳ */
+.semester-name-input {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    padding: 5px 0;
+    flex-grow: 1;
+    min-width: 150px;
+    transition: border-color var(--transition-speed) ease;
+}
+.semester-name-input::placeholder {
+    color: var(--text-color-muted);
+    font-weight: 400;
+    font-style: italic;
+}
+.semester-name-input:focus {
+    outline: none;
+    border-bottom-color: var(--primary-color);
+}
+
+/* Khu vực hiển thị GPA */
+.semester-gpa-display {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* Nút xóa học kỳ */
+.remove-semester-button {
+    background-color: transparent;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    border-radius: var(--border-radius);
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.remove-semester-button:hover {
+    background-color: var(--error-color);
+    color: var(--text-color-light);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.remove-semester-button:active {
+    transform: translateY(1px);
+    background-color: #c82333;
+    border-color: #c82333;
+}
+.remove-semester-button svg {
+    font-size: 0.9em;
+}
+
+/* Nội dung chính của học kỳ */
+.semester-content {
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .semester-header {
+        flex-wrap: wrap;
+        padding: 12px 15px;
+    }
+    .semester-name-input {
+        font-size: 1.2em;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        border-bottom-width: 1px;
+    }
+    .semester-gpa-display {
+        margin-left: 0;
+        order: 3;
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .remove-semester-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        padding: 5px 8px;
+    }
+    .semester-container {
+        position: relative;
+    }
+    .semester-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .semester-header {
+        padding: 10px;
+    }
+    .semester-name-input {
+        font-size: 1.1em;
+    }
+    .remove-semester-button {
+        top: 8px;
+        right: 10px;
+    }
+    .semester-content {
+        padding: 10px;
+    }
+}

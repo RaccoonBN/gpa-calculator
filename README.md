@@ -1,37 +1,19 @@
-# GPA Calculator for Students - Vietnam Aviation Academy 🎓✈️
+# 🎓 GPA Calculator - Vietnam Aviation Academy ✈️
 
-Ứng dụng web đơn giản giúp sinh viên Học viện Hàng không Việt Nam (VAA) tính nhanh điểm trung bình học kỳ, điểm trung bình môn, và GPA tích lũy theo đúng công thức chuẩn của nhà trường.
+Ứng dụng web giúp sinh viên Học viện Hàng không Việt Nam (VAA) tính điểm trung bình môn, điểm trung bình học kỳ và GPA tích lũy một cách nhanh chóng và tiện lợi.
 
-## 🚀 Tính năng chính
+## 🚀 Tính năng
 
-- ✅ Tính GPA học kỳ nhanh chóng
-- ✅ Tính GPA tích lũy nhiều kỳ
-- ✅ Không cần đăng nhập hay lưu trữ
-- ✅ Ước tính điểm trung bình cần đạt để đạt loại **Giỏi/Xuất sắc**
-- ✅ Hỗ trợ giao diện dễ sử dụng, chạy trực tiếp trên trình duyệt
+- Tính GPA từng kỳ và GPA tích lũy
+- Tính điểm trung bình môn theo tín chỉ
+- Ước lượng GPA cần đạt để đạt loại Giỏi / Xuất sắc
+- Giao diện đơn giản, dễ sử dụng
+- Không cần đăng nhập, không cần lưu dữ liệu
+- Chạy trực tiếp trên GitHub Pages
 
-## 🖥️ Công nghệ sử dụng
+## 🌐 Truy cập ứng dụng tại:
+👉 [https://<your-username>.github.io/<your-repo>](https://<your-username>.github.io/<your-repo>)
 
-- ⚛️ [React](https://reactjs.org/)
-- 🧮 JavaScript / HTML / CSS
-- 🧾 GitHub Pages (triển khai miễn phí)
+## 📄 Bản quyền
 
-## 📊 Công thức tính GPA tích lũy
-
-\[
-\text{GPA}_{\text{năm học}} = \frac{
-(GPA_{\text{kỳ I}} \times \sum TC_{\text{kỳ I}}) + 
-(GPA_{\text{kỳ II}} \times \sum TC_{\text{kỳ II}}) + 
-(GPA_{\text{kỳ III}} \times \sum TC_{\text{kỳ III}})
-}{
-\sum TC_{\text{năm học}}
-}
-\]
-
-## 📦 Cài đặt & chạy local
-
-```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-npm install
-npm start
+Phát hành theo giấy phép [MIT](LICENSE).

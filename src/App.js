@@ -11,10 +11,10 @@ import EstimatorView from './views/EstimatorView';
 import { calculateGPA } from './utils/gpaCalculator';
 import './App.css';
 
-const LOCAL_STORAGE_KEY = 'vaaGpaSemesters_v3'; // Thay đổi key để tránh xung đột data cũ
+const LOCAL_STORAGE_KEY = 'vaaGpaSemesters_v3'; 
 
 function App() {
-  const [activeView, setActiveView] = useState('manage'); // Mặc định là quản lý GPA
+  const [activeView, setActiveView] = useState('manage'); 
 
   // --- State quản lý semesters và nextSemesterId giữ nguyên ---
    const [semesters, setSemesters] = useState(() => {
@@ -29,7 +29,6 @@ function App() {
        return Math.max(...semesters.map(s => s?.id || 0), 0) + 1;
    });
 
-  // --- Tính cumulativeResult và useEffect lưu localStorage giữ nguyên ---
   const cumulativeResult = useMemo(() => {
     const allCourses = semesters.reduce((acc, semester) => {
         if (semester && Array.isArray(semester.courses)) {
@@ -44,7 +43,6 @@ function App() {
        catch (e) { console.error("LS save error", e); }
    }, [semesters]);
 
-   // --- Các hàm handleAddSemester, handleRemoveSemester, handleUpdateSemester giữ nguyên ---
     const handleAddSemester = useCallback(() => {
         const newSemester = { id: nextSemesterId, name: `Học kỳ ${nextSemesterId}`, courses: [] };
         setSemesters(prev => [...prev, newSemester]);
@@ -59,7 +57,6 @@ function App() {
         setSemesters(prev => prev.map(s => s.id === semesterId ? updatedData : s));
     }, []);
 
-  // --- Render dựa trên activeView ---
   const renderActiveView = () => {
     switch (activeView) {
       case 'single':
@@ -77,7 +74,7 @@ function App() {
       case 'estimator':
         return <EstimatorView cumulativeResult={cumulativeResult} />;
       default:
-        return <GPAManagementView // Mặc định hiển thị quản lý
+        return <GPAManagementView
             semesters={semesters}
             cumulativeResult={cumulativeResult}
             onAddSemester={handleAddSemester}

@@ -1,16 +1,14 @@
 .app-header {
     background-color: var(--background-light);
-    /* background-color: var(--primary-color); */ /* Hoặc dùng màu chính làm nền */
     color: var(--primary-color);
-    /* color: var(--text-color-light); */
     height: var(--header-height);
     padding: 0 25px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Cố định header */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Đảm bảo luôn ở trên */
+    z-index: 1000;
     display: flex;
     align-items: center;
   }
@@ -25,20 +23,62 @@
   }
   
   .vaa-logo {
-    height: 50px; /* Điều chỉnh chiều cao logo */
+    height: 50px;
     width: auto;
-    object-fit: contain; /* Giữ tỷ lệ logo */
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  /* Khối chứa tiêu đề và mô tả */
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .app-title {
-     font-size: 1.5em; /* Kích thước tiêu đề */
-     margin: 0; /* Reset margin mặc định của h1 */
-     font-weight: 600;
-     /* color: var(--text-color-light); */ /* Nếu nền header là màu chính */
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 600;
+    color: var(--primary-color);
   }
   
-  @media (max-width: 768px) {
-    .app-header { padding: 0 15px; }
-    .vaa-logo { height: 40px; }
-    .app-title { font-size: 1.3em; }
+  .app-subtitle {
+    margin: 2px 0 0 0;
+    font-size: 0.95em;
+    color: var(--text-color-secondary, #666);
+    font-weight: 400;
+    line-height: 1.2;
   }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .app-header {
+      padding: 0 15px;
+      height: auto;
+    }
+  
+    .vaa-logo {
+      height: 40px;
+    }
+  
+    .app-title {
+      font-size: 1.3em;
+    }
+  
+    .app-subtitle {
+      font-size: 0.85em;
+    }
+  
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 10px 0;
+    }
+  
+    .text-content {
+      align-items: flex-start;
+    }
+  }
+  
