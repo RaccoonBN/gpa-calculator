@@ -2,19 +2,51 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Công cụ tính điểm GPA cho sinh viên VAA theo quy định mới nhất."
-    />
+    
+    <!-- Title -->
+    <title>VAA GPA Calculator - Công cụ tính điểm sinh viên Học viện Hàng không Việt Nam</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icon.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>VAA GPA Calculator</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Công cụ tính điểm GPA cho sinh viên Học viện Hàng không Việt Nam theo quy định mới nhất. Nhanh chóng, chính xác và dễ sử dụng." />
+    <meta name="keywords" content="VAA, GPA, Calculator, Học viện Hàng không Việt Nam, tính điểm GPA, công cụ sinh viên, học tập" />
+    <meta name="author" content="RaccoonBN - Developer" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Social Sharing (Open Graph) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VAA GPA Calculator" />
+    <meta property="og:description" content="Công cụ tính GPA dành cho sinh viên Học viện Hàng không Việt Nam." />
+    <meta property="og:image" content="https://raccoonbn.github.io/gpa-calculator/icon.png" />
+    <meta property="og:url" content="https://raccoonbn.github.io/gpa-calculator/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VAA GPA Calculator" />
+    <meta name="twitter:description" content="Tính điểm GPA theo chuẩn VAA - nhanh chóng và tiện lợi." />
+    <meta name="twitter:image" content="https://raccoonbn.github.io/gpa-calculator/icon.png" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-70CW90LJNZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-70CW90LJNZ');
+    </script>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Bạn cần bật JavaScript để sử dụng ứng dụng này.</noscript>
     <div id="root"></div>
   </body>
 </html>
