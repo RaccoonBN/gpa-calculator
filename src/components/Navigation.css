@@ -26,21 +26,25 @@
     color: var(--primary-color-light);
     padding: 8px 15px;
     border-radius: var(--border-radius);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     white-space: nowrap;
     border-bottom: 3px solid transparent;
+    min-height: 40px;
+    -webkit-tap-highlight-color: transparent;
 }
 
+/* Hiệu ứng hover */
 .nav-button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Nút đang active */
 .nav-button.active {
     color: #fff;
     font-weight: 600;
@@ -57,14 +61,26 @@
     display: inline-block;
 }
 
-/* Responsive: Ẩn chữ trên màn hình nhỏ, chỉ hiện icon */
-@media (max-width: 600px) {
+/* Responsive: Ẩn label trên màn hình nhỏ */
+@media (max-width: 700px) {
+    .app-navigation {
+        justify-content: space-around;
+        padding: 0 5px;
+        gap: 0;
+        margin-top: 70px;
+    }
+
     .nav-label {
         display: none;
     }
+
     .nav-button {
         padding: 10px 12px;
+        min-width: 50px;
+        border-bottom-width: 2px;
     }
-    .nav-icon { font-size: 1.3em; }
-    .app-navigation { justify-content: space-around; }
+
+    .nav-icon {
+        font-size: 1.4em;
+    }
 }
