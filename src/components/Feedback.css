@@ -1,0 +1,80 @@
+.feedback-form-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 30px 25px;
+    background: var(--background-light);
+    box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    position: relative;
+  }
+  
+  .feedback-form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--background-light);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .feedback-form input:focus,
+  .feedback-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 6px rgba(var(--primary-color-rgb), 0.25);
+  }
+  
+  .feedback-form button {
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .feedback-form button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .feedback-form-container {
+      margin: 40px auto;
+      padding: 20px;
+    }
+  
+    .feedback-form input,
+    .feedback-form textarea {
+      font-size: 15px;
+    }
+  
+    .feedback-form button {
+      font-size: 16px;
+    }
+  }
