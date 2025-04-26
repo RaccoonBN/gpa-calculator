@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/gpa-calculator/static/css/main.23f4f99e.css",
-    "main.js": "/gpa-calculator/static/js/main.a18266cb.js",
+    "main.css": "/gpa-calculator/static/css/main.68b70238.css",
+    "main.js": "/gpa-calculator/static/js/main.8f123d63.js",
     "static/js/453.96842e3a.chunk.js": "/gpa-calculator/static/js/453.96842e3a.chunk.js",
     "index.html": "/gpa-calculator/index.html",
-    "main.23f4f99e.css.map": "/gpa-calculator/static/css/main.23f4f99e.css.map",
-    "main.a18266cb.js.map": "/gpa-calculator/static/js/main.a18266cb.js.map",
+    "main.68b70238.css.map": "/gpa-calculator/static/css/main.68b70238.css.map",
+    "main.8f123d63.js.map": "/gpa-calculator/static/js/main.8f123d63.js.map",
     "453.96842e3a.chunk.js.map": "/gpa-calculator/static/js/453.96842e3a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23f4f99e.css",
-    "static/js/main.a18266cb.js"
+    "static/css/main.68b70238.css",
+    "static/js/main.8f123d63.js"
   ]
 }
