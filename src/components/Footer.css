@@ -1,154 +1,195 @@
-/* Container chính */
+/* ==========================================================================
+   1. CONTAINER CHÍNH (FOOTER)
+   ========================================================================== */
 .app-footer {
   background-color: #3f4096;
   color: #ffffff;
-  padding: 15px 40px;
-  text-align: center;
-  font-size: 0.85em;
+  padding: 12px 40px;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
-  flex-direction: row; /* Hàng ngang cho Desktop */
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.25);
-  z-index: 998;
+  z-index: 998; /* Thấp hơn Toast để không đè lên thông báo */
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
-/* Khối thông tin bên trái */
+/* ==========================================================================
+   2. KHỐI THÔNG TIN VĂN BẢN (BÊN TRÁI)
+   ========================================================================== */
 .footer-content {
   text-align: left;
-  flex: 2; /* Tăng độ rộng cho phần text */
+  flex: 2;
 }
 
 .footer-content p {
   margin: 3px 0;
+  color: #ffffff !important;
+  font-size: 0.85em;
+  opacity: 1 !important;
   line-height: 1.4;
-  /* Ép màu trắng tuyệt đối cho tất cả thẻ p trong footer-content */
-  color: #ffffff !important; 
-  opacity: 1 !important; /* Đảm bảo chữ trắng sáng, không bị mờ */
 }
 
 .footer-content strong {
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Gạch chân nhẹ cho tên tác giả */
+  color: #ffd700;
 }
 
-/* Khối Donate bên phải */
+/* ==========================================================================
+   3. KHỐI DONATE & BANK CARD (BÊN PHẢI)
+   ========================================================================== */
 .footer-donation {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Căn phải trên Desktop */
+  align-items: flex-end;
+  flex: 1;
   gap: 8px;
 }
 
 .donation-text {
   font-size: 0.85em;
+  color: #ffd700;
   margin: 0 !important;
-  font-style: italic;
-  color: #ffd700; /* Màu vàng nổi bật nhẹ */
-  font-weight: 500;
-}
-
-/* Khung chứa QR và Text ngân hàng */
-.qr-container {
   display: flex;
   align-items: center;
-  background: white;
-  padding: 6px 14px;
+  gap: 6px;
+  font-style: italic;
+}
+
+.bank-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 8px 16px;
   border-radius: 10px;
-  gap: 12px;
-  transition: transform 0.2s ease;
+  gap: 15px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  user-select: none;
 }
 
-.qr-container:hover {
-  transform: scale(1.03); /* Phóng to nhẹ khi di chuột vào */
+.bank-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-.qr-code {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.bank-info {
-  text-align: left;
-  line-height: 1.2;
-}
-
-.bank-name {
-  font-weight: bold;
-  font-size: 0.75em;
-  margin: 0 !important;
-  color: #666;
-}
-
-.bank-number {
-  font-weight: 800;
-  font-size: 0.95em;
-  margin: 0 !important;
+.bank-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #3f4096;
+  font-weight: 900;
+  font-size: 0.75em;
+  border-right: 1px solid #eee;
+  padding-right: 12px;
+}
+
+.bank-details {
+  text-align: left;
+}
+
+.acc-name {
+  color: #666 !important;
+  font-size: 0.7em !important;
+  font-weight: 600;
+  margin: 0 !important;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.acc-number {
+  color: #333 !important;
+  font-size: 1.1em !important;
+  font-weight: 800;
+  margin: 0 !important;
   letter-spacing: 0.5px;
 }
 
-/* --- RESPONSIVE ĐÀNG HOÀNG --- */
-
-/* Tablet & Mobile nhỏ */
-@media (max-width: 992px) {
-  .app-footer {
-    padding: 12px 20px;
-  }
+.icon-copy {
+  color: #3f4096;
+  font-size: 1.1em;
+  opacity: 0.7;
 }
 
+/* ==========================================================================
+   4. CẤU HÌNH TOASTIFY - HIỂN THỊ CHÍNH GIỮA MÀN HÌNH
+   ========================================================================== */
+/* Ghi đè vị trí container của Toastify */
+.Toastify__toast-container--top-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+  min-width: 300px;
+  z-index: 999999 !important; /* Cao nhất để đè lên Header/Nav */
+}
+
+/* Tùy chỉnh giao diện thanh Toast */
+.Toastify__toast {
+  border-radius: 15px !important;
+  padding: 16px 24px !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5) !important;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Màu sắc của Toast Success (TP Bank Style) */
+.Toastify__toast--success {
+  background-color: #3f4096 !important; /* Cùng tông với app */
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE (CHO ĐIỆN THOẠI & TABLET)
+   ========================================================================== */
 @media (max-width: 768px) {
   .app-footer {
-    position: relative; /* QUAN TRỌNG: Bỏ fixed để không che nội dung mobile */
-    flex-direction: column; /* Chuyển thành hàng dọc */
-    gap: 15px;
+    position: relative; /* Tháo fixed trên mobile để không choếm diện tích */
+    flex-direction: column;
     padding: 25px 15px;
-    font-size: 0.8em;
+    gap: 15px;
   }
 
   .footer-content {
-    text-align: center; /* Căn giữa nội dung */
-    order: 2; /* Đẩy thông tin bản quyền xuống dưới */
+    text-align: center;
+    order: 2;
   }
 
   .footer-donation {
-    align-items: center; /* Căn giữa QR */
-    order: 1; /* Đưa QR lên trên cho dễ thấy */
+    align-items: center;
+    order: 1;
     width: 100%;
   }
 
-  .donation-text {
-    font-size: 0.9em;
+  .bank-card {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
   }
 
-  .qr-container {
-    padding: 8px 20px;
-    width: fit-content;
-  }
-
-  .qr-code {
-    width: 60px; /* Cho QR to hơn một chút trên mobile để dễ quét */
-    height: 60px;
+  /* Đảm bảo Toast vẫn nằm giữa màn hình mobile */
+  .Toastify__toast-container--top-center {
+    width: 85% !important;
+    min-width: unset;
   }
 }
 
-/* Điện thoại cực nhỏ */
-@media (max-width: 400px) {
-  .bank-number {
-    font-size: 0.85em;
-  }
-  .qr-code {
-    width: 50px;
-    height: 50px;
-  }
+/* Hiệu ứng mượt mà cho Icon */
+.icon-coffee {
+  animation: swing 2s infinite ease-in-out;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
 }

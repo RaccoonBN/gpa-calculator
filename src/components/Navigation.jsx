@@ -8,7 +8,7 @@ const navItems = [
   { key: 'single', label: 'Tính điểm môn', icon: <FaCalculator /> },
   { key: 'manage', label: 'Quản lý GPA', icon: <FaListOl /> },
   { key: 'estimator', label: 'Dự đoán điểm', icon: <FaBullseye /> },
-  { key: 'feedback', label: 'Góp Ý', icon: <FaCommentDots /> }, // <<< Thêm tab Góp Ý
+  { key: 'feedback', label: 'Góp Ý & Ủng hộ', icon: <FaCommentDots /> }, // <<< Thêm tab Góp Ý
 ];
 
 /**
