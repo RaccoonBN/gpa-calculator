@@ -56,7 +56,7 @@ function Footer() {
       />
 
       <div className="footer-content">
-        <p>© 2025 VAA GPA Calculator - Công cụ tham khảo.</p>
+        <p>© 2024 VAA GPA Calculator - Công cụ tham khảo.</p>
         <p>Luôn đối chiếu với quy định đào tạo của Học viện Hàng không Việt Nam.</p>
         <p>Dự án được thực hiện bởi <strong>RaccoonBN</strong>.</p>
       </div>
