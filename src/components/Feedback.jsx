@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS của react-toastify
-import './Feedback.css'; // CSS file riêng cho feedback form
+import 'react-toastify/dist/ReactToastify.css';
+import './Feedback.css'; 
 
 const FeedbackForm = () => {
   const handleSubmit = async (e) => {

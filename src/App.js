@@ -3,13 +3,13 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import FeedbackPage from './components/Feedback'; // Đảm bảo import đúng component FeedbackPage
+import FeedbackPage from './components/Feedback'; 
 
 // Views
 import SingleCourseView from './views/SingleCourseView';
 import GPAManagementView from './views/GPAManagementView';
 import EstimatorView from './views/EstimatorView';
-import FeedbackView from './views/FeedbackView'; // Import FeedbackView ở đây
+import FeedbackView from './views/FeedbackView'; 
 
 // Utils & Styles
 import { calculateGPA } from './utils/gpaCalculator';

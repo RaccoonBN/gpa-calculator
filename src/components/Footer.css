@@ -1,35 +1,154 @@
+/* Container chính */
 .app-footer {
-    background-color: #3f4096;
-    color: #ffffff;
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 0.8em;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 998;
-  }
-  
-  .app-footer p {
-    margin: 0;
-    opacity: 0.85;
-    line-height: 1.4;
-    color: #ffffff;
+  background-color: #3f4096;
+  color: #ffffff;
+  padding: 15px 40px;
+  text-align: center;
+  font-size: 0.85em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* Hàng ngang cho Desktop */
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 998;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
 
+/* Khối thông tin bên trái */
+.footer-content {
+  text-align: left;
+  flex: 2; /* Tăng độ rộng cho phần text */
+}
+
+.footer-content p {
+  margin: 3px 0;
+  line-height: 1.4;
+  /* Ép màu trắng tuyệt đối cho tất cả thẻ p trong footer-content */
+  color: #ffffff !important; 
+  opacity: 1 !important; /* Đảm bảo chữ trắng sáng, không bị mờ */
+}
+
+.footer-content strong {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Gạch chân nhẹ cho tên tác giả */
+}
+
+/* Khối Donate bên phải */
+.footer-donation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Căn phải trên Desktop */
+  gap: 8px;
+}
+
+.donation-text {
+  font-size: 0.85em;
+  margin: 0 !important;
+  font-style: italic;
+  color: #ffd700; /* Màu vàng nổi bật nhẹ */
+  font-weight: 500;
+}
+
+/* Khung chứa QR và Text ngân hàng */
+.qr-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 10px;
+  gap: 12px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.qr-container:hover {
+  transform: scale(1.03); /* Phóng to nhẹ khi di chuột vào */
+}
+
+.qr-code {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.bank-info {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.bank-name {
+  font-weight: bold;
+  font-size: 0.75em;
+  margin: 0 !important;
+  color: #666;
+}
+
+.bank-number {
+  font-weight: 800;
+  font-size: 0.95em;
+  margin: 0 !important;
+  color: #3f4096;
+  letter-spacing: 0.5px;
+}
+
+/* --- RESPONSIVE ĐÀNG HOÀNG --- */
+
+/* Tablet & Mobile nhỏ */
+@media (max-width: 992px) {
+  .app-footer {
+    padding: 12px 20px;
   }
-  
-  /* Responsive: bỏ fixed khi màn hình nhỏ */
-  @media (max-width: 768px) {
-    .app-footer {
-      position: relative;
-      padding: 15px;
-      font-size: 0.78em;
-      box-shadow: none;
-    }
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    position: relative; /* QUAN TRỌNG: Bỏ fixed để không che nội dung mobile */
+    flex-direction: column; /* Chuyển thành hàng dọc */
+    gap: 15px;
+    padding: 25px 15px;
+    font-size: 0.8em;
   }
-  
+
+  .footer-content {
+    text-align: center; /* Căn giữa nội dung */
+    order: 2; /* Đẩy thông tin bản quyền xuống dưới */
+  }
+
+  .footer-donation {
+    align-items: center; /* Căn giữa QR */
+    order: 1; /* Đưa QR lên trên cho dễ thấy */
+    width: 100%;
+  }
+
+  .donation-text {
+    font-size: 0.9em;
+  }
+
+  .qr-container {
+    padding: 8px 20px;
+    width: fit-content;
+  }
+
+  .qr-code {
+    width: 60px; /* Cho QR to hơn một chút trên mobile để dễ quét */
+    height: 60px;
+  }
+}
+
+/* Điện thoại cực nhỏ */
+@media (max-width: 400px) {
+  .bank-number {
+    font-size: 0.85em;
+  }
+  .qr-code {
+    width: 50px;
+    height: 50px;
+  }
+}
